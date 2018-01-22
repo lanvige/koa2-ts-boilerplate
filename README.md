@@ -11,9 +11,25 @@
 
 - 构建一个可用的 ts 的最佳配置集。
 - 结合 koa2, koa-router
-- 使用 sequelizejs
-- 使用 IoC，awilix
+- 使用 ORM
+- 使用 IoC
 - env 实践
+
+
+
+### Web Framework
+
+- https://github.com/koajs/koa
+- https://github.com/typestack/routing-controllers
+
+### IoC
+
+- https://github.com/typestack/typedi
+
+### ORM
+
+- https://github.com/typeorm/typeorm
+- https://github.com/typeorm/typeorm-typedi-extensions
 
 
 
