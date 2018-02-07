@@ -41,6 +41,7 @@
     "class-validator": "^0.7.3",
     "glob": "^7.1.2",
     "ip": "^1.1.5",
+    "jsonwebtoken": "^8.1.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-multer": "^1.0.2",

@@ -29,7 +29,13 @@ export class UserRepository extends Repository<User> {
   }
 
   async login(name: string, password: string): Promise<any> {
-    const user = await this.findOne({ name: name });
+    const cfg = {
+      where: {
+        name
+      },
+    } as FindOneOptions<User>;
+
+    const user = await this.findOne(cfg);
 
     const passwordHash = crypto.createHmac('sha256', password + user.salt).digest('hex');
 

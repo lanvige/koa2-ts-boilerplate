@@ -5,6 +5,7 @@ import { Context } from 'koa';
 import { AuthService } from '../services/authService';
 import { User } from '../models/user';
 import { UserEntity } from '../entities/userEntity'
+import { TokenEntity } from '../entities/tokenEntity'
 import { ResponseStatus } from '../../lib/enum/responseStatus';
 
 
@@ -33,7 +34,7 @@ export class UserApi {
   }
 
   @Post('/local/login')
-  async login(@Body() req): Promise<DataResult<UserEntity>> {
+  async login(@Body() req): Promise<DataResult<TokenEntity>> {
     // 要校验用户的输入
     const name = req.name || null
     const password = req.password || null
@@ -45,8 +46,8 @@ export class UserApi {
     const user = await this.authService.login(name, password);
 
     // 这里应该返回 token
-    const userEntity = new UserEntity(user)
-    return DataResult.ok<UserEntity>(userEntity);
+    const userEntity = new TokenEntity(user)
+    return DataResult.ok<TokenEntity>(userEntity);
   }
 
   @Get('/wxlogin')
