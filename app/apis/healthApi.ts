@@ -7,7 +7,7 @@ import { HealthCheckError } from '../../lib/errors/healthCheckError';
 
 @JsonController()
 @Service()
-export class HealthCheck {
+export class HealthApi {
 
   @Get('/api/v1/healthz/')
   health(): string {

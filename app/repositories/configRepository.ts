@@ -10,16 +10,6 @@ export class ConfigRepository extends Repository<Config> {
         key,
         app_id: fact.appId,
       },
-        // relations: ['rule'],
-        // join: {
-        //   alias: 'rules',
-        //   innerJoinAndSelect: {
-        //     author: 'photo.author',
-        //     categories: 'categories',
-        //     user: 'categories.user',
-        //     profile: 'user.profile',
-        //   },
-        // },
     } as FindOneOptions<Config>;
 
     const data = await this.findOne(cfg);

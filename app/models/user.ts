@@ -9,17 +9,28 @@ export class User {
   @Column()
   name: string;
 
-  @Column()
+  // 这个是必要的吗？
+  @Column({ default: 'null@null.com' })
   email: string;
+
+  // 手机号是必要的吗？
+  @Column({ default: '' })
+  phone: string;
 
   @Column()
   password: string;
 
-  // @Column({ name: 'enable_access', default: false })
-  // enableAccess: boolean;
+  @Column()
+  salt: string;
+
+  @Column({ name: 'state', default: 1 })
+  state: number;
 
   @Column()
   token: string;
+
+  @Column({ default: 'default' })
+  scope: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
