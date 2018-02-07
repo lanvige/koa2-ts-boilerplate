@@ -5,6 +5,6 @@
     "username": "root",
     "password": "xxxxx",
     "database": "account",
-    "entities": ["./build/app/models/*.js"],
+    "entities": ["./dist/app/models/*.js"],
     "logging": true
   }
