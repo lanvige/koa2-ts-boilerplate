@@ -17,6 +17,9 @@ createConnection().then(() => {
   });
 
   // start listen
-  app.listen(process.env.PORT, () => console.log('server started， port ' + process.env.PORT + ' env ' + process.env.NODE_ENV));
+  const nodeEnv = process.env.NODE_ENV || 'development';
+  const port = process.env.PORT || 4001;
+
+  app.listen(port, () => console.log('server started， port ' + port + ' env ' + nodeEnv));
 
 }).catch(error => console.log('Error: ', error));
