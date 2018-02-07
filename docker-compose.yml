@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app-koa2-ts-boil:
+    build:
+      context: .
+      # args:
+      #   NODE_ENV: production
+    container_name: app-koa2-ts-boil
+    ports:
+      - "8030:80"
+    # log_driver: "syslog"
+    # log_opt:
+    #   syslog-address: "tcp://10.10.50.1:10514"
+    # command: pm2 start /app/process.yml --no-daemon
+    environment:
+      - TZ=Asia/Shanghai

@@ -1,0 +1,75 @@
+{
+  "name": "koa2-ts-boilerplate",
+  "version": "0.1.1",
+  "description": "The boilerplate for KOA2, TS and typedi, typeorm.",
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "start": "node bin/server.js",
+    "build:app": "tsc",
+    "build:copy:appfile": "cp package.json dist/ && cp yarn.lock dist/ && cp process.yml dist/ && cp Dockerfile dist/ && cp docker-compose.yml dist/",
+    "build:copy": "yarn build:copy:appfile",
+    "build": "yarn clean && yarn build:app && yarn build:copy",
+    "dev": "tsc -w",
+    "debug": "icebug src/bin/server.js",
+    "debug-brk": "npm run debug -- --break",
+    "test": "mocha test/*.test.js --compilers js:babel-register --require test/_helpers",
+    "test-watch": "npm run test -- --watch",
+    "lint": "eslint src/ test/",
+    "lint-watch": "esw -w src/ test/"
+  },
+  "author": {
+    "name": "Lanvige Jiang"
+  },
+  "contributors": [
+    {
+      "name": "Lanvige Jiang"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@types/bluebird": "^3.5.3",
+    "@types/bluebird-global": "^3.5.2",
+    "@types/cli-color": "^0.3.29",
+    "@types/fs-extra-promise": "^1.0.1",
+    "@types/koa": "^2.0.43",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/koa-router": "^7.0.27",
+    "@types/lodash": "^4.14.64",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^9.3.0",
+    "@types/node-zookeeper-client": "^0.2.6",
+    "@types/request-promise": "^4.1.40",
+    "@types/should": "^8.3.0",
+    "class-validator": "^0.7.3",
+    "glob": "^7.1.2",
+    "ip": "^1.1.5",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.3.0",
+    "md5": "^2.2.1",
+    "mysql2": "^1.5.1",
+    "node-rules": "^3.1.0",
+    "node-zookeeper-client": "^0.2.2",
+    "os": "^0.1.1",
+    "redis": "^2.8.0",
+    "reflect-metadata": "^0.1.12",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "routing-controllers": "^0.7.6",
+    "sequelize": "^4.31.2",
+    "sequelize-typescript": "^0.6.2",
+    "tslib": "^1.9.0",
+    "typedi": "^0.6.0",
+    "typeorm": "^0.1.11",
+    "typeorm-typedi-extensions": "^0.1.1",
+    "underscore": "^1.8.3",
+    "versioning": "^1.1.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.4.2",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.6.2"
+  }
+}

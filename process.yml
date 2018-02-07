@@ -1,0 +1,17 @@
+apps:
+  - script   : app.js
+    name     : app-koa2-ts-boil
+    watch    : true
+    # instances: 2
+    exec_mode: fork
+    # error_file: /var/log/app/err.log
+    # out_file: /var/log/app/out.log
+    env:
+      PORT: 80
+      NODE_ENV: production
+    env_develop:
+      PORT: 80
+      NODE_ENV: development
+    env_test:
+      PORT: 80
+      NODE_ENV: test
