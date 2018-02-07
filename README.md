@@ -1,4 +1,4 @@
-# koa2-ts-boilerplate
+# KOA2-TS-BOILERPLATE
 
 这是一个基于 koa2 和 typescript 的一个实践。
 
@@ -10,9 +10,9 @@
 ## 2018 目标：
 
 - 构建一个可用的 ts 的最佳配置集。
-- 结合 koa2, koa-router
-- 使用 ORM
-- 使用 IoC
+- 结合 koa2
+- 使用 ORM - typeorm
+- 使用 IoC - typedi
 - env 实践
 
 
@@ -22,9 +22,11 @@
 - https://github.com/koajs/koa
 - https://github.com/typestack/routing-controllers
 
+
 ### IoC
 
 - https://github.com/typestack/typedi
+
 
 ### ORM
 
@@ -32,4 +34,6 @@
 - https://github.com/typeorm/typeorm-typedi-extensions
 
 
+
+## 开始使用
 

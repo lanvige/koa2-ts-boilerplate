@@ -1,29 +1,29 @@
 {
-   "compilerOptions": {
-       "target": "es2017",
-       "module": "commonjs",
-       "moduleResolution": "node",
-       "emitDecoratorMetadata": true,
-       "experimentalDecorators": true,
-       "allowSyntheticDefaultImports": true,
-       "alwaysStrict": true,
-       "sourceMap": true,
-       "noEmit": false,
-       "noEmitHelpers": true,
-       "importHelpers": true,
-       "strictNullChecks": false,
-       "allowUnreachableCode": true,
-       "lib": ["es2017"],
-       "typeRoots": ["node_modules/@types"],
-       "outDir": "./dist",
-       "rootDir": "./"
-   },
-   "exclude": [
-       "node_modules",
-       "dist",
-       "**/*.test.ts",
-       "temp"
-   ],
-   "compileOnSave": false,
-   "buildOnSave": false
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "noEmit": false,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "strictNullChecks": false,
+    "allowUnreachableCode": true,
+    "lib": ["es2017"],
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "./dist",
+    "rootDir": "./"
+  },
+  "exclude": [
+      "node_modules",
+      "dist",
+      "**/*.test.ts",
+      "temp"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

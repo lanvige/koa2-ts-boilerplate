@@ -4,7 +4,6 @@ import config from '../../config/config';
 import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Repository } from 'typeorm/repository/Repository';
 import { Config } from '../models/config';
-import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { Fact } from '../models/fact';
 import * as RuleEngine from 'node-rules';
 import { ConfigRepository } from '../repositories/configRepository';
@@ -20,44 +19,13 @@ export class ConfigService {
   }
 
   async getConfig(key: string, fact: Fact) : Promise<any> {
-    // const cfg = {
-    //   where: {
-    //     key,
-    //     app_id: fact.appId,
-    //   },
-    //   // relations: ['rule'],
-    //   // join: {
-    //   //   alias: 'rules',
-    //   //   innerJoinAndSelect: {
-    //   //     author: 'photo.author',
-    //   //     categories: 'categories',
-    //   //     user: 'categories.user',
-    //   //     profile: 'user.profile',
-    //   //   },
-    //   // },
-    // } as FindOneOptions<Config>;
-    // const data = await this.configRepository.findOne(cfg);
-    // const value = await this.getConfigValue(data, fact);
-    // return { key, value };
-
     const data = await this.configRepository.getConfig(key, fact);
     const value = await this.getConfigValue(data, fact);
+
     return { key, value };
   }
 
   async getConfigValue(config, fact) {
-    // const ruleString = '[' +
-    //   '{' +
-    //   '"condition": function (R) {this.result = false;R.when(this.version.gte(new Versioning("2.0.1")) && this.version.lt(new Versioning("99.99.99")) ); },' +
-    //   '"consequence": function (R) {this.result = true;R.stop(); } ,' +
-    //   '"priority": 1' +
-    //   '},' +
-    //   '{' +
-    //   '"condition": function (R) {this.result = false;R.when(this.version.gte(new Versioning("2.0.1")) && this.version.lt(new Versioning("99.99.99")) ); },' +
-    //   '"consequence": function (R) {this.result = true;R.stop(); } ,' +
-    //   '"priority": 1' +
-    //   '}' +
-    //   ']';
     let rules;
     if (config.Rules && config.Rules.length > 0 && config.rules) {
       /* tslint:disable */ rules = eval(config.rules); /* tslint:enable */
@@ -65,6 +33,7 @@ export class ConfigService {
     if (!rules) {
       rules = [];
     }
+
     try {
       const R = new RuleEngine(rules);
       // Now pass the fact on to the rule engine for results

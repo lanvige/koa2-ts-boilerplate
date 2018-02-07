@@ -4,9 +4,9 @@
   "description": "The boilerplate for KOA2, TS and typedi, typeorm.",
   "scripts": {
     "clean": "rm -rf dist/*",
-    "start": "node app.js",
+    "start": "PORT=4001 NODE_ENV=development node dist/app.js",
     "build:app": "tsc",
-    "build:copy:appfile": "cp package.json dist/ && cp yarn.lock dist/ && cp process.yml dist/ && cp Dockerfile dist/ && cp docker-compose.yml dist/",
+    "build:copy:appfile": "cp package.json dist/ && cp yarn.lock dist/ && cp ormconfig.json dist/ && cp process.yml dist/ && cp Dockerfile dist/ && cp docker-compose.yml dist/",
     "build:copy": "yarn build:copy:appfile",
     "build": "yarn clean && yarn build:app && yarn build:copy",
     "dev": "yarn clean && tsc -w",
