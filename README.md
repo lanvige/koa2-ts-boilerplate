@@ -72,3 +72,8 @@ yarn build
 yarn start
 ```
 
+
+## Authors
+
+- redelva https://github.com/redelva
+- lanvige https://github.com/lanvige
