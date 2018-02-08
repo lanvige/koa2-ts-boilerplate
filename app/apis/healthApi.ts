@@ -14,6 +14,14 @@ export class HealthApi {
     return 'success';
   }
 
+  @Get('/api/v1/healthzerr/')
+  healtherr(): string {
+    const options = getConnection().options as MysqlConnectionCredentialsOptions;
+
+    throw new DBError(err, options);
+  }
+
+
   @Get('/api/v1/info/')
   async info(@HeaderParam('token') token: string) {
     const sql = 'SELECT 1 from tms_tasks limit 1;';

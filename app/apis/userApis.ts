@@ -1,5 +1,5 @@
 import { Inject, Service } from 'typedi';
-import { JsonController, Param, Body, Get, Post, Put, Delete, UseInterceptor, Action, CurrentUser } from 'routing-controllers';
+import { JsonController, Param, Body, Get, Post, Put, Delete, NotAcceptableError, UseInterceptor, Authorized, CurrentUser } from 'routing-controllers';
 import { DataResult } from '../../lib/response/dataResult';
 import { Context } from 'koa';
 import { UserService } from '../services/userService';
@@ -35,9 +35,13 @@ export class UserApi {
   //   return DataResult.ok<UserEntity>(userEntity);
   // }
 
+
+  @Authorized('admin')
   @Get('/1/:name')
   async getUser(@CurrentUser({ required: true }) user: User): Promise<DataResult<UserEntity>> {
     // const user = await this.userService.getByName(name);
+    throw new NotAcceptableError("Custom Error");
+
 
     const userEntity = new UserEntity(user)
 
