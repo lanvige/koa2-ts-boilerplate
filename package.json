@@ -6,8 +6,9 @@
     "clean": "rm -rf dist/*",
     "start": "PORT=4001 NODE_ENV=development node dist/app.js",
     "build:app": "tsc",
-    "build:copy:appfile": "cp package.json dist/ && cp yarn.lock dist/ && cp ormconfig.json dist/ && cp process.yml dist/ && cp Dockerfile dist/ && cp docker-compose.yml dist/",
-    "build:copy": "yarn build:copy:appfile",
+    "build:copy:docker": "cp Dockerfile dist/ && cp docker-compose.yml dist/",
+    "build:copy:config": "cp package.json dist/ && cp yarn.lock dist/ && cp process.yml dist/",
+    "build:copy": "yarn build:copy:config && yarn build:copy:docker",
     "build": "yarn clean && yarn build:app && yarn build:copy",
     "dev": "yarn clean && tsc -w",
     "test": "mocha test/*.test.js --compilers js:babel-register --require test/_helpers",
@@ -69,6 +70,9 @@
     "tslint": "^5.9.1",
     "tslint-config-airbnb": "^5.4.2",
     "tslint-config-standard": "^7.0.0",
+    "shipit-deploy": "^2.5.1",
+    "shipit-shared": "^4.4.2",
+    "shipit-shared-copy": "^0.1.0",
     "typescript": "^2.6.2"
   }
 }
