@@ -2,6 +2,8 @@ import 'reflect-metadata'; // this shim is required
 import { createKoaServer, useContainer as routingUseContainer, Controller } from 'routing-controllers';
 import { useContainer as ormUseContainer, createConnection } from 'typeorm';
 import { Container } from 'typedi';
+import {User} from './app/models/user'
+import currentUserChecker from './utils/currentUserChecker'
 
 // config ioc container
 routingUseContainer(Container);
@@ -14,6 +16,7 @@ createConnection().then(() => {
     controllers: [__dirname + '/app/apis/*.js'],
     middlewares: [__dirname + '/lib/middlewares/*.js'],
     defaultErrorHandler: false,
+    currentUserChecker: currentUserChecker
   });
 
   // start listen

@@ -11,7 +11,7 @@ export class TokenEntity extends BaseEntity {
     super();
 
     // 用 jwt 来生成 token
-    var token = jwt.sign({ id: user.id, token: user.token }, 'abcdefg');
+    var token = jwt.sign({ id: user.id, token: user.token }, 'secret');
 
     this.token = token;
     this.auth_type = 'bearer'

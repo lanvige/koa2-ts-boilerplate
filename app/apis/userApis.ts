@@ -17,14 +17,27 @@ export class UserApi {
 
   @Get('/')
   async getAllUsers(): Promise<DataResult<User[]>> {
+    // 校验当前用户。
+    // 1取 token
+    // 校验 token
+
     const users = await this.userService.getAll();
 
     return DataResult.ok<User[]>(users);
   }
 
-  @Get('/:name')
-  async getConfig(@Param('name') name: string): Promise<DataResult<UserEntity>> {
-    const user = await this.userService.getByName(name);
+  // @Get('/:name')
+  // async getConfig(@Param('name') name: string): Promise<DataResult<UserEntity>> {
+  //   const user = await this.userService.getByName(name);
+
+  //   const userEntity = new UserEntity(user)
+
+  //   return DataResult.ok<UserEntity>(userEntity);
+  // }
+
+  @Get('/1/:name')
+  async getUser(@CurrentUser({ required: true }) user: User): Promise<DataResult<UserEntity>> {
+    // const user = await this.userService.getByName(name);
 
     const userEntity = new UserEntity(user)
 
