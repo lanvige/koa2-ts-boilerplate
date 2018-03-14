@@ -37,14 +37,18 @@ export class UserApi {
 
 
   @Authorized('admin')
-  @Get('/1/:name')
-  async getUser(@CurrentUser({ required: true }) user: User): Promise<DataResult<UserEntity>> {
-    // const user = await this.userService.getByName(name);
-    throw new NotAcceptableError("Custom Error");
+  @Get('/:name')
+  async getUser(@CurrentUser({ required: true }) user: User, @Param('name') name: string): Promise<DataResult<UserEntity>> {
+    const user2 = await this.userService.getByName(name);
+    // throw new NotAcceptableError("Custom Error");
 
+    if (user2) {
+      const userEntity = new UserEntity(user2)
 
-    const userEntity = new UserEntity(user)
+      return DataResult.ok<UserEntity>(userEntity);
+    } else {
+      throw new NotAcceptableError("Custom Error");
+    }
 
-    return DataResult.ok<UserEntity>(userEntity);
   }
 }

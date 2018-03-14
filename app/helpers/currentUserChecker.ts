@@ -5,7 +5,7 @@ import { User } from '../models/user';
 async function currentUserChecker(action: Action, value?: any) {
   // perform queries based on token from request headers
   // const token = action.request.headers["authorization"];
-  const abc = action.request.abc
+  const testfiled = action.request.testfiled
 
   const auth = action.request.headers["authorization"];
   const token = auth.slice(7);
@@ -14,7 +14,7 @@ async function currentUserChecker(action: Action, value?: any) {
 
   // return database.findUserByToken(token);
   const user = new User();
-  user.id = 1;
+  user.id = decoded.id;
   user.name = "fdasfa";
 
   return user;

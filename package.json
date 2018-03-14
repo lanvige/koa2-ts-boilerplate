@@ -67,12 +67,12 @@
     "versioning": "^1.1.0"
   },
   "devDependencies": {
-    "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.4.2",
-    "tslint-config-standard": "^7.0.0",
     "shipit-deploy": "^2.5.1",
     "shipit-shared": "^4.4.2",
     "shipit-shared-copy": "^0.1.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.4.2",
+    "tslint-config-standard": "^7.0.0",
     "typescript": "^2.6.2"
   }
 }
