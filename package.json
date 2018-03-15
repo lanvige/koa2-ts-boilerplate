@@ -57,8 +57,6 @@
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "routing-controllers": "^0.7.6",
-    "sequelize": "^4.31.2",
-    "sequelize-typescript": "^0.6.2",
     "tslib": "^1.9.0",
     "typedi": "^0.6.0",
     "typeorm": "^0.1.11",
